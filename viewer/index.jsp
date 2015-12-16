@@ -313,7 +313,6 @@
                     <iframe width="720" height="315" src="https://www.youtube.com/embed/8zwYC_oYxAQ?vq=1080" frameborder="0" allowfullscreen></iframe>
                     <iframe width="720" height="315" src="https://www.youtube.com/embed/boracG7utWE?vq=1080" frameborder="0" allowfullscreen></iframe>
                     
-
                 </div>
                
                 <div id="settings">
@@ -465,9 +464,11 @@
                         Kai-Christian Bruhn<br>
                         Matthias Dufner<br>
                         Fredie Kern<br>
+                        Alexander Klauss<br>
                         Alexandra Müller<br>
                     </span>
                     </span>
+                    
                     
                     <h1 id="license" class="margintop">License</h1>
                     <span>
