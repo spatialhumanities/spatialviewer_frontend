@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>[IBR] Data Import</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+	<script type="text/javascript" src="init.js"></script>
+	<script type="text/javascript" src="communicator.js"></script>
+	<script type="text/javascript" src="spatialstore/config.js"></script>
+	<script>
+		function init() {
+			document.getElementById("form").action = GV.Config.spatialstore+"rest";
+			IO.readXML(GV.Config.spatialstore+"rest",fillSelect);
+		}
+		function fillSelect(xml) {
+			var spatialcontexts = xml.getElementsByTagName("spatialcontext");
+			for (var i=0; i<spatialcontexts.length; i++) {
+				var option = document.createElement("option");
+				option.value = spatialcontexts[i].getAttribute("id");
+				option.innerHTML = spatialcontexts[i].getAttribute("place");
+				document.getElementById("select").appendChild(option);
+			}
+		}
+	</script>
+</head>
+<body onload="init()">
+	<center>
+		<h1>Send ProjectXML to Server</h1>
+		<form id="form" method="POST" enctype="multipart/form-data">
+			<input type="file" id="file" name="projectXML" multiple /><br />
+			<input type="submit" />
+		</form>
+		<h1>Remove Project from Server</h1>
+		<form id="form" method="POST" enctype="multipart/form-data">
+			<select id="select" name="clearMode"></select><br />
+			<input type="submit" value="Delete" />
+		</form>
+	</center>
+</body>
+</html>

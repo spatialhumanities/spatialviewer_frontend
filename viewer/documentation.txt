@@ -1,0 +1,199 @@
+﻿# Benutzer-Dokumentation
+
+<ul id="contents"></ul>
+
+Diese Dokumentation haben wir für angehende und aktive Benutzer des GenericViewers geschrieben. Falls Sie nähere Informationen zu den technischen Abläufen oder zu bestimmten Themen benötigen, empfehlen wir auch einen Blick in die übrige Dokumentation.
+
+Der GenericViewer ist ein Erfassungs- und Verknüpfungswerkzeug, mit dem Sie online und kollaborativ die Position eines Objektes (wir nennen ein solches Objekt ein "Feature") innerhalb seines räumlichen Kontextes markieren und mit Fachinformationen verbinden können. Weiter eröffnet Ihnen der GenericViewer Abfrage- und Export-Funktionalität, um gefilterte Informationen in anderen Programmen weiter analysieren zu können.
+
+![Stark vereinfachte Darstellung der Funktionsweise des GenericViewers](http://ibr.spatialhumanities.de/ibr/viewer/documentation/gv_schema0.jpg "Stark vereinfachte Darstellung der Funktionsweise des GenericViewers")
+
+Die Benutzeroberfläche des GenericViewers ist entsprechend der drei Pfeile in obiger Abbildung aufgebaut: Sie können Objekte (wir nennen diese Objekte auch "Features") in ihrer räumlichen Lage und Beschaffenheit erfassen (`Draw`). Sie können Fachinformationen zu den erfassten Objekten hinzufügen (`Connect`). Und wenn genügend Daten erfasst sind, können Sie diese nach gewissen Kriterien selektieren (`Filter`) und exportieren.
+
+*Das <a target="_blank" href="http://www.inschriften.net/rhein-hunsrueck-kreis/inschrift/nr/di060-0159.html">Epitaph von Petrus Lutern</a> befindet sich ex situ. Wir wollten herausfinden, welches der originäre Anbringungsort dieses Grabmals war. Zwei Feststellungen sollten dabei helfen:*
+
+- *Der originäre Anbringungsort muss eine Wand oder ein Pfeiler sein, der über ausreichend Platz für die Dimensionen des Epitaphs verfügt*
+- *Zum Zeitpunkt der Anbringung durfte kein anderes Objekt (beispielsweise Wandgemälde) bereits am Anbringungsort vorhanden sein*
+
+*Diese Feststellungen mündeten in einer Anfrage an den GenericViewer:*
+
+- *Gib mir alle Wandpositionen, deren Dimensionen größer sind als die Dimensionen des Lutern-Epitaphs und an denen sich außerdem kein Wandgemälde mit Datierung vor der Datierung des Epitaphs befindet!*
+- *Bei entsprechend umfangreicher Datenlage – wenn also die Benutzer viele Features erfasst und mit passenden Fachdaten, wie Datierungen, verknüpft haben – ergibt sich eine brauchbare Ergebnismenge zu dieser Anfrage, die zur weiteren Analyse exportiert werden kann.*
+
+Sie erfahren nun grundlegende Informationen zur Benutzung des GenericViewers. In weiteren Unterkapiteln erläutern wir dann die räumliche und semantische Erfassung sowie das Filtern und Exportieren intensiver.
+
+### Systemvoraussetzungen
+
+Um den GenericViewer benutzen zu können, benötigen Sie lediglich ein internetfähiges Gerät mit geeignetem Browser (und JavaScript aktiviert), zum Beispiel:
+
+- <a target="_blank" href="http://www.google.de/chrome/browser/desktop/">Google Chrome</a> ab Version 25
+- <a target="_blank" href="http://windows.microsoft.com/de-de/internet-explorer/download-ie">Microsoft Internet Explorer</a> ab Version 11
+- <a target="_blank" href="http://https://www.mozilla.org/de/firefox/new/">Mozilla Firefox</a> ab Version 15
+
+Für eine komfortable Nutzung empfehlen wir weitere Punkte:
+
+- Nutzen Sie einen Desktop-PC oder einen Laptop mit Maus
+- Ihr Gerät sollte mit moderner Grafikkarte ausgestattet sein
+- Ihr Bildschirm sollte mindestens eine Auflösung von 1024x768 haben
+- Verwenden Sie eine schnelle Internetverbindung ohne Volumen-Begrenzung
+
+### Benutzeroberfläche
+
+Der GenericViewer ist in fünf Reiter aufgeteilt: Im `Menu` haben Sie die Möglichkeit sich anzumelden und allgemeine Einstellungen vorzunehmen. Der Reiter `Overview` verschafft Ihnen einen listenartigen Überblick über alle Features und deren Zustand. Durch Klick auf das Bild selektieren/deselektieren Sie Features. Wenn Sie auf "show" klicken, wird Ihnen das entsprechende Feature im `Draw`-Reiter angezeigt. Der `Filter` bietet Ihnen die Möglichkeit Features nach gewissen Kriterien zu wählen, um Sie beispielsweise zu exportieren und damit zur weiteren Analyse in anderen Programmen zu verwenden. Die Eingabe von Daten findet in den hinteren beiden Reitern statt. Der Reiter `Draw` ermöglicht die räumliche Erfassung von geometrischen Objekten. Im Reiter `Connect` können Sie diese dann semantisch anreichern, indem Sie kleine Subjekt-Prädikat-Objekt-Aussagen treffen, so genannte Triples.
+
+![Die Reiter des GenericViewers](http://ibr.spatialhumanities.de/ibr/viewer/documentation/tabs.png "Die Reiter des GenericViewers")
+
+Wechseln können Sie die Reiter durch Klick auf die Beschriftung oder durch Drücken von F1 bis F5 auf Ihrer Tastatur.
+
+### Benutzerverwaltung
+
+Um sich beim GenericViewer anzumelden, benötigen Sie zunächst einen Account bei einem so genannten OpenID-Provider, beispielsweise bei Google, Yahoo oder einem anderen Anbieter. Mit Hilfe einer OpenID können Sie sich bei einer so genannten Relying Party, in unserem Fall ist das der GenericViewer, identifizieren ohne dort ein Benutzerkonto anlegen zu müssen. Nebenbei bemerkt: Es gibt auch keine andere Möglichkeit sich für den GenericViewer anzumelden.
+
+![Anmelden und Abmelden beim GenericViewer](http://ibr.spatialhumanities.de/ibr/viewer/documentation/login.png "Anmelden und Abmelden beim GenericViewer")
+
+Klicken Sie im Reiter `Menu` auf den Login-Button. Es öffnet sich ein Fenster. Wählen Sie darin Ihren OpenID-Provider aus. Im Hintergrund bittet nun der GenericViewer Ihren OpenID-Provider darum Ihnen eine Eingabemaske zu senden. In dieser Eingabemaske können Sie sich nun mit Benutzernamen und Passwort bei Ihrem OpenID-Provider anmelden. Dieser wiederum sendet dann Ihre Email-Adresse an den GenericViewer, je nach Provider müssen Sie diesen Schritt explizit erlauben. Falls alles geklappt hat, sind Sie nun beim GenericViewer eingeloggt. Sie sollten dann Ihre Email-Adresse im `Menu` sehen. Durch einen Klick auf den Logout-Button melden Sie sich wieder ab.
+
+Durch die Anmeldung beim GenericViewer werden Ihre Features vor Manipulation durch andere Benutzer geschützt. Ein ohne Anmeldung erstelltes Feature bekommt keinen Ersteller zugeordnet und ist damit für alle Benutzer veränderbar. Ein Feature mit Ersteller kann nur von eben diesem, also von einem Benutzer, der als dieser Ersteller angemeldet ist, wieder gelöscht oder modifiziert werden. Das gleiche gilt für die semantische Annotation.
+
+![Vereinfachte Darstellung des Ablaufs einer Authentifizierung mit OpenID](http://ibr.spatialhumanities.de/ibr/viewer/documentation/openid.jpg "Vereinfachte Darstellung des Ablaufs einer Authentifizierung mit OpenID")
+
+Bitte beachten Sie für andere Dienste als den GenericViewer den Hinweis, dass das OpenID-Prinzip auch missbraucht werden kann, um an Ihren Account bei Ihrem OpenID-Provider zu kommen. Solche Dienste imitieren die Login-Seite Ihres OpenID-Providers. Wenn Sie dann Ihren Benutzernamen und Ihr Passwort eingeben, senden Sie diese Information nicht etwa an Ihren OpenID-Provider, sondern an den datenstehlenden Dienst. Achten Sie daher genau auf die sicherheitsrelevanten Merkmale Ihres OpenID-Providers, beispielsweise Ihr Profilbild. Weiterhin ist es auch möglich, dass Sie bereits in Ihrem Browser bei Ihrem OpenID-Provider angemeldet sind. Dadurch müssen Sie nicht erneut Ihren Benutzernamen und Ihr Passwort eingeben, wodurch auch keine Gefahr durch eine Phishing-Attacke besteht.
+
+## Räumliche Erfassung
+
+Zentral bei der räumlichen Erfassung und Bearbeitung ist der `Draw`-Reiter. Der Hauptteil dieses Reiters ist eine Panorama-Ansicht des aktuell gewählten Standpunkts. Sie können sich drehen, indem Sie in das Hauptfenster klicken und dabei die Maus bewegen, mit dem Mausrad können Sie zoomen. Links in diesem Fenster befindet sich eine Werkzeugleiste, unten können Sie das Panoramabild wechseln. Bitte beachten Sie, dass Sie durch den Wechsel des Bildes nicht Ihren Standort wechseln, sondern lediglich die Visualisierung ändern.
+
+Sie können Features anlegen, indem Sie auf eines der Werkzeuge klicken. Zunächst greifen Sie durch eine Zeichnung lediglich Maße ab. Erst durch das Speichern wird eine URI erzeugt, sodass Sie das Feature semantisch annotieren können. Die Position des Features wird druch die hinter dem Panorama liegende Punktwolke bestimmt. Sie sehen also ein Bild, arbeiten aber eigentlich auf der Punktwolke.
+
+![Übersicht Draw-Reiter](http://ibr.spatialhumanities.de/ibr/viewer/documentation/draw.png "Übersicht Draw-Reiter")
+
+Oben rechts sehen Sie einen Grundriss zur Orientierung, ein Nordpfeil und ein Maßstab unterstützen dabei zusätzlich. Durch Klick auf das Vollbild-Symbol wird der Grundriss so dargestellt, dass sich alle Standpunkte innerhalb des sichtbaren Bereichs befinden. Im Grundriss können Sie den Standpunkt wechseln durch Klick auf einen der lila Punkte oder durch Auswahl eines Standpunktes in der Liste. Sie können mit Hilfe der Maus auch im Grundriss zoomen und navigieren. Wechseln können Sie den Grundriss, indem Sie einen anderen Grundriss aus der Liste wählen. Darunter befinden sich Informationen zum ausgewählten Feature und eine Liste an aktuell verfügbaren Keyboard-Shortcuts.
+
+### Zustände
+
+Der GenericViewer kann sich in verschiedenen Zuständen befinden. Je nach Zustand ändern sich die Werkzeugleiste und die Anzeige der Objektinformationen. Außerdem haben Klicks in das große Fenster unterschiedliche Auswirkungen.
+
+#### Normaler Modus
+Sie können Features durch Klick auswählen. Wenn Sie die Strg-Taste gedrückt halten, können Sie auch mehrere Features selektieren bzw. deselektieren. Wenn Sie die Strg-Taste und die A-Taste gleichzeitig drücken, wählen Sie damit alle Features aus. Hintereinander liegende Features werden alternierend selektiert. Sie können außerdem in der Übersicht Features durch Klick auf das entsprechende Bild auswählen.
+
+#### Einfacher Selektions-Modus
+Haben Sie ein Feature ausgewählt, erscheinen rechts unter dem Grundriss Informationen zu diesem Feature. Sie können das Feature als Punktwolke exportieren und Sie können, falls Sie die Berechtigung dazu haben, das Feature bearbeiten. Die Berechtigung ein Feature zu verändern haben Sie, wenn Sie als derjenige Benutzer angemeldet sind, der das Feature erstellt hat oder wenn das Feature anonym erstellt wurde.
+
+#### Mehrfacher Selektions-Modus
+Wenn Sie mehrere Features ausgewählt haben, erscheint rechts unter dem Grundriss die Information, wie viele Features Sie ausgewählt haben. Mehrere Features können Sie nicht gleichzeitig als Punktwolke exportieren. Sie können jedoch die eigentliche flächen- oder linienhafte Geometrie exportieren und somit einen Überblick über die gegenseitige Lage der Features erhalten. Sie können auch mehrere Features gleichzeitig löschen, falls Sie über die Berechtigung dazu verfügen.
+
+#### Zeichen-Modus
+Wenn Sie im normalen Modus auf eines der Werkzeuge klicken, um ein neues Feature anzulegen, gelangen Sie in den Zeichen-Modus. Nun können Sie durch Klicks in das Panorama Ihre Geometrie gestalten. Nähere Informationen dazu finden Sie in der Übersicht der Werkzeuge weiter unten.
+
+#### Bearbeitungs-Modus
+Wenn Sie eine Zeichnung abgeschlossen haben oder wenn Sie ein selektiertes Feature bearbeiten wollen, gelangen Sie in den Bearbeitungs-Modus. Dieser unterteilt sich nochmals in drei Unter-Modi, die Sie durch Klick auf die polygonalen Symbole erreichen: Stützpunkte verschieben, hinzufügen und löschen. Wenn Sie im Bearbeitungs-Modus auf das Disketten-Symbol zum Speichern klicken, legt der GenericViewer ein Feature an und, falls noch nicht vorhanden, versieht es mit einem URI. Weiter speichert der GenericViewer ein kleines Foto von dem aktuell im Fenster zu sehenden Ausschnitt und führt eine Sichtbarkeitsanalyse durch, die ermittelt, ob es weitere Standpunkte gibt, von denen das gerade gespeicherte Objekte zu sehen ist. Diese Analyse kann manchmal ungewollte Ergebnisse produzieren. Daher können Sie die Sichtbarkeit eines geometrischen Objektes von einem gewissen Standpunkt auch manuell festlegen, indem Sie auf das Symbol mit dem Auge klicken. Durch das Speichern gelangen Sie übrigens in den einfachen Selektions-Modus, das heißt Ihr Feature ist dann ausgewählt.
+
+### Werkzeuge
+
+Die Werkzeugleiste enthält je nach Zustand und Berechtigung unterschiedliche Symbole. Teilweise können Sie statt einem Klick auf das entsprechende Werkzeug auch einen Keyboard-Shortcut nutzen. Im Folgenden stellen wir Ihnen alle Werkzeuge kurz vor.
+
+#### ![draw line](http://ibr.spatialhumanities.de/ibr/viewer/img/linestring.png "draw line")
+Damit legen Sie einen neuen Linienzug an. Im nächsten Schritt erzeugen Sie durch Klick in die Panorama-Ansicht Stützpunkte für Ihren Linienzug. Durch Klick auf den letzten Stützpunkt schließen Sie den Linienzug ab und gelangen in den Bearbeitungs-Modus.
+
+#### ![draw polygon](http://ibr.spatialhumanities.de/ibr/viewer/img/polygon.png "draw polygon")
+Damit legen Sie ein neues Polygon an. Im nächsten Schritt erzeugen Sie durch Klick in die Panorama-Ansicht Eckpunkte für Ihr Polygon. Durch Klick auf den ersten Eckpunkt schließen Sie das Polygon ab und gelangen in den Bearbeitungs-Modus.
+
+#### ![draw extruded polygon](http://ibr.spatialhumanities.de/ibr/viewer/img/prism.png "draw extruded polygon")
+Damit legen Sie ein neues Prisma an. Ein Prisma ist ein Körper mit einer polygonalen Grundfläche und einer gewissen Höhe. Wenn Sie ein Prisma anlegen, zeichnen Sie lediglich das Polygon, das die Grundfläche bildet. Der GenericViewer bestimmt dann automatisch die Höhe des Prismas anhand der Punkte, die innerhalb des gezeichneten Polygons liegen.
+
+#### ![export feature](http://ibr.spatialhumanities.de/ibr/viewer/img/export.png "export feature")
+Damit exportieren Sie die selektierten Features in dem Format, das Sie im Reiter `Menu` als "Feature File Format" gewählt haben.
+
+#### ![export pointcloud](http://ibr.spatialhumanities.de/ibr/viewer/img/pointcloud.png "export pointcloud")
+Damit exportieren Sie die hinter dem selektierten Feature liegende Punktwolke in dem Format, das Sie im Reiter `Menu` als "Pointcloud File Format" gewählt haben.
+
+#### ![delete feature](http://ibr.spatialhumanities.de/ibr/viewer/img/delete.png "delete feature")
+Damit entfernen Sie die selektierten Features. Sie müssen das Löschen in dem folgenden Dialog zur Sicherheit nochmals bestätigen.
+
+#### ![edit feature](http://ibr.spatialhumanities.de/ibr/viewer/img/edit.png "edit feature")
+Damit gehen Sie in den Bearbeitungs-Modus und können dann die Stützpunkte des gewählten Features verschieben.
+
+#### ![save feature](http://ibr.spatialhumanities.de/ibr/viewer/img/save.png "save feature")
+Damit speichern Sie das gerade in Bearbeitung oder Erstellung befindliche Feature. Falls nicht vorhanden, bekommt es ein URI zugewiesen. Das Vorschaubild entspricht dem im Panoramafenster zu sehenden Ausschnitt im Moment der Speicherung.
+
+#### ![abort](http://ibr.spatialhumanities.de/ibr/viewer/img/abort.png "abort")
+Damit brechen Sie die Bearbeitung oder Erstellung ab. Bei einer Bearbeitung ist das Feature dann wieder in seinem ursprünglichen Zustand. Bei einer Erstellung ist es so, als hätten Sie nie etwas anlegen wollen.
+
+#### ![add point](http://ibr.spatialhumanities.de/ibr/viewer/img/editAdd.png "add point")
+Damit wechseln Sie den Bearbeitungs-Modus, sodass Sie nun Stützpunkte hinzufügen können. Klicken Sie dazu dann auf eine Linie des in Bearbeitung befindlichen Features.
+
+#### ![delete point](http://ibr.spatialhumanities.de/ibr/viewer/img/editDelete.png "delete point")
+Damit wechseln Sie den Bearbeitungs-Modus, sodass Sie nun Stützpunkte entfernen können. Klicken Sie dazu dann auf einen Punkt des in Bearbeitung befindlichen Features.
+
+#### ![drag point](http://ibr.spatialhumanities.de/ibr/viewer/img/editDrag.png "drag point")
+Damit wechseln Sie den Bearbeitungs-Modus, sodass Sie nun Stützpunkte verschieben können. Klicken und halten Sie dazu einen Punkt des in Bearbeitung befindlichen Features und ziehen diesen Punkt an die gewünschte Stelle.
+
+#### ![set feature as visible](http://ibr.spatialhumanities.de/ibr/viewer/img/visible.png "set feature as visible")
+Damit setzen Sie das Feature als vom aktuellen Standpunkt aus sichtbar.
+
+#### ![set feature as invisible](http://ibr.spatialhumanities.de/ibr/viewer/img/invisible.png "set feature as invisible")
+Damit setzen Sie das Feature als vom aktuellen Standpunkt aus nicht sichtbar.
+
+## Semantische Verknüpfung
+
+TODO Felix: Was ist das überhaupt?
+
+TODO Felix: Wie ist der `Connect`-Reiter aufgebaut? ggf. mit Skizze
+
+TODO Felix: Wie macht man eine Annotation, was passiert bei Klick auf "save"?
+
+TODO Felix: Was passiert bei Klick auf "sparql"? mit Verweis auf den `Filter`-Reiter
+
+### Semantische Objekte
+
+TODO Felix: Welche Objekte tauchen bei Subjekt, Prädikat, Objekt zur Auswahl auf?
+
+#### Properties
+TODO Felix: Was sieht man hier?
+
+#### IBR Taxonomy
+TODO Felix: Was sieht man hier?
+
+#### Selected Features
+TODO Felix: Was sieht man hier?
+
+## Abfragen und Filtern
+
+Im `Filter`-Reiter können Sie Features ausblenden. Wenn Sie einen Filter aktivieren, werden nur noch die Features angezeigt, die den gewählten Kriterien entsprechen. Die übrigen Features sind dann auch in den anderen Reitern nicht mehr zu finden. Erst wenn Sie den Filter wieder entfernen, sind diese Features wieder vorhanden. Falls Sie an einem größeren Projekt mit mehr als 100 Features pro Standpunkt arbeiten, empfehlen wir Ihenen gleich zu Beginn Ihrer Arbeit einen Filter zu setzen, um den Überblick nicht zu verlieren. Wir stellen Ihnen nun die verschiedenen Filter vor. Anschließend zeigen wir Ihnen, was Sie mit den gefilterten Features tun können.
+
+### Filter
+
+Um einen Filter zu aktivieren, gehen Sie auf "add filter" und wählen Sie in der Liste den gewünschten Filter aus. Sie können lediglich einen Filter eines Typs setzen, aber mehrere verschiedene kombinieren. Alle Filter funktionieren nach dem gleichen Prinzip: Es erscheint ein Bereich, in dem Sie die Filter-Kriterien spezifizieren. Mit der Aktivierung des Filters verschwindet dieser Bereich und die Features reduzieren sich entsprechend. Alle noch vorhandenen Features sind nun ausgewählt. Außerdem erscheint ein Eintrag "remove filter", mit dessen Hilfe Sie den jeweiligen Filter wieder deaktivieren können.
+
+#### sparql
+Mit diesem Filter schreiben Sie im linken Textfeld eine SPARQL-Anfrage, mit der Features nach semantischen Kriterien selektiert werden. Alternativ können Sie eine bereits vorformulierte SPARQL-Anfrage in das Textfeld laden laden, indem Sie rechts auf die entsprechende Beschreibung klicken. Um den Filter zu aktivieren, klicken Sie auf "SPARQL Query". Je nach Größe Ihres Datenbestandes kann es ein paar Sekunden dauern bis Ihnen das Ergebnis präsentiert wird. Falls keine Reaktion erfolgt, war Ihre Anfrage möglicherweise fehlerhaft formuliert.
+
+#### date
+Mit dieser Funktion filtern Sie Features nach dem Datum der letzten Modifizierung. Wählen Sie entweder im oberen Kalender ein Start-Datum und im unteren Kalender ein End-Datum aus und klicken Sie anschließend unten auf "filter". Oder wählen Sie "today" oder "yesterday" aus, um nach dem heutigen oder gestrigen Datum zu filtern.
+
+#### creator
+Mit dieser Funktion filtern Sie Features nach dem Benutzer, der zuletzt eine Bearbeitung vorgenommen hat. In der Regel ist dies auch der Ersteller eines Features. Klicken Sie einfach auf den Namen des Benutzers und aktivieren damit den Filter.
+
+#### geometry
+Mit dieser Funktion filtern Sie Features nach ihrer geometrischen Ausprägung. Wählen Sie zunächst den gewünschten Geometrie-Typ (Punkt, Linie, Polygon oder Prisma). Anschließend können Sie die Größe des Features einschränken. Durch Klick auf "filter" wird der Filter aktiviert.
+
+#### viewpoint
+Mit dieser Funktion selektieren Sie alle Features, die vom gewählten Standpunkt aus sichtbar sind. Klicken Sie dazu auf den Namen des gewünschten Standpunkts.
+
+#### selection
+Mit dieser Funktion filtern Sie die selektierten Features oder die nicht selektierten Features. Durch Klick auf den Eintrag "Display only the selected ones" verschwinden alle nicht ausgewählten Features, beim Eintrag "Display all the other ones" passiert das Umgekehrte.
+
+### Export
+
+Sie haben die Möglichkeit selektierte Features, zum Beispiel durch einen Filter gewählt, mit Hilfe des [export feature]-Werkzeugs im `Draw`-Reiter zu exportieren. Ebenso können Sie einzelne Features mit dem [export pointcloud]-Werkzeug herunterladen. Im `Menu`-Reiter können Sie ein paar Einstellungen zum Export vornehmen, die wir Ihnen nun vorstellen.
+
+#### Pointcloud File Format
+Beim Export von einzelnen Features als Punktwolke können Sie zwischen dem XYZ-Format und dem PTS-Format wählen. Beide repräsentieren eine Punktwolke in Form einer Liste von XYZ-Koordinaten, das PTS-Format beinhaltet jedoch zusätzliche Informationen, wie Intensitätswerte und Metadaten.
+
+#### Features File Format
+Beim Export einer Menge von Features in jeweiliger geometrischer Repräsentation können Sie zwischen drei Formaten wählen. Bei WKT erhalten Sie eine einfache Text-Datei mit Simple Feature Access. Die XML-basierten Auszeichnungssprachen GML und X3D sind detaillierter, wobei GML eher zur Darstellung von Georeferenzen und X3D eher für 3D-Anwendungen geeignet ist.
+
+#### Coordinate System
+Zusätzlich zum Format der exportierten Datei können Sie wählen in welchem System die Koordinaten ausgegeben werden. Neben georeferenzierten Systemen steht Ihnen das Bauwerks-Koordinatensystem (Spatialcontext) sowie das Koordinatensystem des Aufnahmegerätes (Original Scan Data) zur Verfügung. Beachten Sie, dass bei letzterem das Koordinatensystem von der Wahl des Standpunktes abhängt.
+
+

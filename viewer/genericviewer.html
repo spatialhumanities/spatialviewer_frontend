@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Generic Viewer</title>
+        <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+        <style type="text/css">
+            @font-face {
+                font-family: gvicon;
+                src: url(gv-icon-Regular.otf);  
+
+            }
+            * {margin: 0; padding: 0; color: white;}
+            body {background: black;}
+            canvas {width: 100% !important, height: 100%; border: none;}
+            #toprow {height: 50px;  width: 95%; margin: 0 auto;}
+            #window {width: 95%; background: gray; margin: 0 auto; height: 520px;}
+            #footerwrapper {bottom: 0; position: fixed; width: 100%; height: 30px; }
+            #footer {width: 95%; margin: 0 auto; font-family: 'Roboto', sans-serif; }
+            #brand  {text-transform: uppercase; letter-spacing: 1px; float: left;}
+            #content {width: 95%; height: 200px; margin: 0 auto;}
+            #toolbar {font-family: 'gvicon';}
+            #toolbar a {font-size: 70px; float: left; margin-right: 1px; margin-top: -22px; text-decoration: none;}
+            #toolbar a:hover {font-size: 70px; color: yellow;}
+            #version {float: left; font-size: 10px; text-transform: none; margin-top: 7px; margin-left: 4px;}
+
+            #navigationmap {float: right; width: 30%; height: 240px; margin-top: -120px; background: white;}
+
+
+        </style>
+    </head>
+    <body>
+        <div id="toprow">
+            <div id="toolbar">
+                <ul>
+                    <a href="#" title="Polygon zeichnen">a</a>
+                    <a href="#" title="Strecke messen">b</a>
+                    <a href="#" title="Strecke zeichnen">c</a>
+
+                </ul>
+            </div>
+        </div>
+        <div id="window">
+            <canvas id="viewer" style="border-style:solid"></canvas>
+        </div>
+        <div id="content">
+            <div id="navigationmap">
+            </div>
+        </div>
+
+
+        <div id="footerwrapper">
+            <div id="footer">
+                <p id="brand">Generic Viewer</p>
+                <p id="version">Demo</p>
+            </div>
+        </div>
+
+
+
+    </body>
+</html>

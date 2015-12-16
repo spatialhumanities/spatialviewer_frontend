@@ -1,0 +1,56 @@
+spatialstore
+------------
+*	load(callback)
+*	getSpatialcontexts() 							--> return Objektliste [spatialcontext]
+*	getSpatialcontext(id)							--> return Spatialcontext
+*   getTransformationMatrix(transformationString) 	--> return mat4
+
+spatialcontext(xml)
+-------------------
+**	load(callback)
+*   getID()                							--> return String
+*	getPlace() 										--> return String
+**	getViewpoints() 								--> return Objektliste [viewpoint]
+**  getViewpoint(id)								--> return Objekt [viewpoint]
+**	getFloorplans()									--> return Objektliste [floorplanmedia]
+**  getFloorplan(id) 								--> return Objekt [floorplanmedia]
+**	getFeatures()									--> return Objektliste [feature]
+**	getFeature(id)									--> return Objekt [feature]
+**  addFeature(fid,furl)							--> create new Objekt [feature]
+
+viewpoint(xml, spatialcontext)
+------------------------------
+***	load(callback)
+**	getName() 										--> return String
+**	getTransformation() 							--> return mat4
+***	getPanoramas()									--> return Objektliste [panorama]
+*** getPanorama(id)									--> return Objekt [panorama]
+***	getMeasurements() 								--> noch nicht implementiert !!!
+*** getMeasurement(id)								--> noch nicht implementiert !!!
+***	getFeatures()									--> return Objektliste [feature]
+***	loadFeatures(callback)							--> load all Features
+*** getFeature(id)									--> return Objekt [feature]
+*** getFeatureCoordinates(id)						--> return vec4
+*** sendPoint(callback,theta,phi)					--> send XML to Server
+
+panorama(xml)
+-------------
+*** getID()                            				--> return String
+*** getType() 										--> return String
+*** getKindOf()										--> return String
+*** getImages() 									--> return Array [Referenzen]
+*** getTransformation()								--> return mat4
+
+floorplanmedia(xml)
+--------------
+** getName()										--> return String
+** getURL()											--> return String
+** getTransformation()								--> return mat4
+
+feature(url)
+------------
+****	load(callback)
+****	getGeometry()								--> return vec3 (viewer coordinate system)
+****	getIntensity()								--> return float
+****    getID()										--> return String
+****    getURL()									--> return String

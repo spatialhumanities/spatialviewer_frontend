@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+		<title>OpenID Selector</title>
+		  <!-- google fonts -->
+       <link href='http://fonts.googleapis.com/css?family=Roboto:400,100italic,100,300,300italic,400italic,500,500italic,700,700italic,900italic,900' rel='stylesheet' type='text/css'/>
+		<style type="text/css">
+		*{
+			padding: 0;  font-size: 15px; text-align: center;
+		}
+		body {
+		font-family: "Roboto", Helvetica, Arial, sans-serif;
+		color:black; padding: 10px; background: #f5f5f5;
+
+		}
+		p { margin: 0;}
+		h1 {margin-top: 20px; margin-bottom: 0;}
+		#box {border: 1px solid #cacaca;
+			background: white;
+    display: block;
+    height: 150px;
+    margin: 0 auto;
+    padding: 84px 10px 10px;
+    text-align: center;
+    vertical-align: middle;
+    width: 400px;
+	margin-top: 20px;}
+       
+		</style>
+		
+		<script type="text/javascript" src="../communicator.js"></script>
+		<script type="text/javascript" src="register.js"></script>
+		<script type="text/javascript">
+			function login(provider) {
+				location.href= window.opener.GV.OpenID.login + "/" + provider;
+			}
+		</script>
+    </head>
+    <body>
+	
+					<h2>OpenID Sign-in or Create New Account</h2>
+				
+					<a id="box" href="#" onclick="login('Google');">
+						<img width="200" src="../img/google.png" alt="Google" />
+					</a>
+					
+       
+        <div id="info">
+            <h1>Why Login?</h1>
+            <p>If you want to protect the features you created, you can login in with OpenID. 
+                Every feature you create will be connected with your email address. 
+                These features can only be edited and deleted when logged in with this account.
+                Every feature that is created by an anonymous user can be edited or deleted by every other user and will not be safe.
+            </p>
+            <h1>What Information is used?</h1>
+            <p>Spatial Viewer will use your OpenID account for identification. You can login with OpenID using your Google Account.
+                For further information visit <a href="http://openid.net/get/">http://openid.net/get/</a>.
+                Spatial Viewer will only safe your email address if you create or edit a feature.
+                <p style = "color: red;">The email address you use will then be visible to every other user of the Spatial Viewer!</p>
+            </p>
+        </div>
+    </body>
+</html>

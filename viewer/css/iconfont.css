@@ -1,0 +1,302 @@
+@font-face {
+	font-family: 'icomoon';
+	src:url('fonts/icomoon.eot?-59cdl2');
+	src:url('fonts/icomoon.eot?#iefix-59cdl2') format('embedded-opentype'),
+		url('fonts/icomoon.ttf?-59cdl2') format('truetype'),
+		url('fonts/icomoon.woff?-59cdl2') format('woff'),
+		url('fonts/icomoon.svg?-59cdl2#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== 
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;*/
+}
+
+
+
+
+.icon-invisible:before {
+	content: "\e90a";
+}
+.icon-visible:before {
+	content: "\e90b";
+}
+.icon-hidesidebar:before {
+	content: "\e901";
+}
+.icon-zoomout:before {
+	content: "\e900";
+}
+.icon-export:before {
+	content: "\e906";
+}
+.icon-login:before {
+	content: "\e907";
+}
+.icon-logout:before {
+	content: "\e903";
+}
+.icon-minimieren:before {
+	content: "\e905";
+}
+.icon-north:before {
+	content: "\e902";
+}
+.icon-dropdown:before {
+	content: "\e802";
+}
+.icon-colsort:before {
+	content: "\e80a";
+}
+.icon-markedtop:before {
+	content: "\e80b";
+}
+.icon-close:before {
+	content: "\e803";
+}
+.icon-camera:before {
+	content: "\e805";
+}
+.icon-detail:before {
+	content: "\e806";
+}
+.icon-abort:before {
+	content: "\e804";
+}
+.icon-showsidebar:before {
+	content: "\e904";
+}
+.icon-maximieren:before {
+	content: "\e800";
+}
+.icon-deletefilter:before {
+	content: "\e609";
+}
+.icon-fullscreen:before {
+	content: "\e610";
+}
+.icon-colsize:before {
+	content: "\e615";
+}
+.icon-save:before {
+	content: "\e616";
+}
+.icon-polygon:before {
+	content: "\e61a";
+}
+.icon-iconsinvertiert-24:before {
+	content: "\e61b";
+}
+.icon-addpoint:before {
+	content: "\e60d";
+}
+.icon-deletepoint:before {
+	content: "\e60f";
+}
+.icon-movepoint:before {
+	content: "\e621";
+}
+.icon-edit:before {
+	content: "\e625";
+}
+.icon-trash:before {
+	content: "\e606";
+}
+.icon-selected:before {
+	content: "\e614";
+}
+.icon-linestring:before {
+	content: "\e61e";
+}
+.icon-extrudedpolygon:before {
+	content: "\e623";
+}
+.icon-link:before {
+	content: "\e60a";
+}
+.icon-plus:before {
+	content: "\e60e";
+}
+.icon-unselected:before {
+	content: "\e60c";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.selectedrow .icon-unselected:before {
+	content: "\e614";
+	margin-right: 30px;
+	margin-top: -2px;
+}
+
+.icon-selected:before {
+	content: "\e614";
+	margin-right: 30px;
+	margin-top: -2px;
+}
+
+.icon-unselected:before {
+	content: "\e60c";
+	margin-right: 30px;
+}
+
+.icon-colsize:before {
+	
+}
+
+.icon-zoomout:before {
+	
+}
+
+.icon-close:before {
+	
+}
+
+.icon-sortcolumn:before {
+	
+}
+
+.icon-colsort:before {
+	
+}
+
+.icon-markedtop:before {
+	
+}
+
+
+
+.icon-colsize:hover {
+	color: black;
+}
+
+.icon-minimieren:before {
+	margin-top: 4px;
+	display: block;
+	color: #bababa;
+}
+
+.icon-maximieren:before {
+	margin-top: 4px;
+	display: block;
+}
+
+.icon-colsort:before {
+	margin-top: -5px;
+	display: block;
+}
+
+.icon-markedtop:before {
+	margin-top: -5px;
+	display: block;
+}
+
+.icon-fullscreen:before {
+	margin-top: -5px;
+	display: block;
+	
+}
+
+
+.columnoptions .icon-close:before {
+	margin-top: -6px;
+	display: block;
+}
+
+.icon-export:before {
+	margin-left: -1px !important;
+	margin-right: 75px;
+}
+
+.icon-dropdown:before {
+	float: right;
+	margin-top: 4px;
+}
+
+.header .icon-dropdown:before {
+	float: right;
+	margin-top: -26px !important;
+}
+
+.header .icon-deletefilter:before {
+	float: right;
+	margin-top: -5px !important;
+}
+
+.icon-login:before {
+	font-size: 28px;
+	color: #cacaca;
+	display: block;
+	margin-top: -3px;
+}
+
+.icon-logout:before {
+	font-size: 28px;
+	color: black;
+	display: block;
+	margin-top: -3px;
+}
+
+.icon-detail:before {
+	margin-right: 74px;
+}
+
+.icon-camera:before {
+	margin-left: 5px;
+}
+
+span.icon-link {
+	float: right !important;
+}
+
+span.iconfont.icon-hidesidebar:before {
+	float: right !important;
+}
+
+span.iconfont.icon-showsidebar:before {
+	float: right !important;
+	font-size: 25px;
+	margin-top: -2px;
+}
+
+.panoramaselect .icon-dropdown {
+	float: right !important;
+	margin: 2px 4px 0 0;
+}

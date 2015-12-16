@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>[IBR] Feature Export</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script type="text/javascript" src="databaseconnection/import.js"></script>
+	<script type="text/javascript" src="communicator.js"></script>
+	<script type="text/javascript" src="spatialstore/config.js"></script>
+	<script>
+		function init() {
+			GV.fillSelectWithSpatialcontexts("spatialcontexts");
+		}
+		function changeSelect() {
+			var select1 = document.getElementById("spatialcontexts");
+			var sc = select1.options[select1.selectedIndex].value;
+			var scURL = GV.Config.parse(GV.Config.spatialcontextURL,sc);
+			var select2 = document.getElementById("formats");
+			var format = select2.options[select2.selectedIndex].value;
+			document.getElementById("form").setAttribute("action",scURL + "features." + format);
+			document.getElementById("form2").setAttribute("action",scURL + "features." + format);
+		}
+	</script>
+</head>
+<body onload="init()">
+	<center>
+		<h2>Feature - Export</h2>
+		<select id="spatialcontexts" name="spatialcontext"></select>
+		<select id="formats" name="format">
+			<option value="gml">GML</option>
+			<option value="ewkt" selected>WKT</option>
+			<option value="x3d">X3D</option>
+		</select>
+		<form id="form" method="GET" onsubmit="changeSelect()">
+			SRID: <input type="text" name="srid" size="5" value="0"/>
+			<p>Sichtbar von Standpunkt (optional):<input type="text" name="viewpoint" /></p>
+			<p>Erstellt von Benutzer (optional):<input type="text" name="creator" /></p>
+			<input type="submit" />
+		</form>
+		<br /><br /><br />
+		<form id="form2" method="GET" onsubmit="changeSelect()">
+			<p>Oder einfach eine Liste von Feature-IDs angeben (mit Komma getrennt):</p>
+			<input type="text" name="fids" />
+			<input type="submit" />
+		</form>
+	</center>
+</body>
+</html>

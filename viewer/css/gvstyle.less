@@ -1,0 +1,580 @@
+
+/* ------------------------ LESS VARIABLES -------------------*/
+/* -------- COLORS----------*/
+@nice-blue: #5B83AD;
+
+
+@light-gray: #e6e6e6;
+@light-gray2: #B0B0B0;
+@light-gray3: #a0a0a0;
+@darkbackground-gray: white; 
+@buttonbackground-gray: #5c5c5c; 
+@text-gray: #d6d6d6;
+@buttoncolor: #FFFDBF;
+@buttoncoloralpha: #F0FFFF;
+@listbg: white;
+
+
+/* -------- TYPO ----------*/
+@normaltext: 13px;
+@normallineheight: 20px;
+
+@smalltext: 11px;
+@menutext: 15px;
+@smallesttext: 10px;
+
+@boxpadding: 3px 7px 5px 7px;
+@toggletext: 19px;
+@listtext : 16px;
+
+
+
+
+* { 	margin: 0; padding: 0; text-decoration: none; font-family: "Roboto", sans-serif; 
+		letter-spacing: 0.05em; list-style: none; 
+		backface-visibility: hidden; }
+@font-face { font-family: gvicon; src: url(gv-icon-Regular.otf); }
+body { background: @darkbackground-gray;  }
+canvas { float: left; clear: left; border: none; z-index: 1; background: @darkbackground-gray; margin-top: 0; }
+li ul li {border: none;}
+select { border: none; background: grey; width: 100%; float: left; clear: left; font-size: @normaltext; color: black; padding: 1px;  border: 0; border-radius: 0; border-bottom: 1px solid black; height: 34px; -webkit-appearance: none; }
+h1 {  font-size: @normaltext; margin: 0 0 20px 0; padding-top: 50px; }
+h2 {font-size: @normaltext; margin-bottom: 50px; color: white;}
+h3 {font-size: @normaltext; font-weight: normal; padding: 4px 0; bottom: 0; width: 69px; }
+a {color: inherit;}
+a:hover {text-decoration: underline;}
+#hidesidebar {z-index: 9999; position: fixed; right: 0px; top: 5px; width: 348px; border-bottom: 1px solid #cacaca;  padding: 0; height: 28px; margin-right: 2px; }
+#hidesidebar.nosidebar {background: none; border: 0 !important;}
+#hidesidebar span {float: right; margin-top: 2px; }
+
+
+
+img {font-size: 3px; color: black;}
+
+#floorplan {	background-color: #1C1C1C;
+background-image: linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%, black), 
+linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%, black);
+background-size:60px 60px;
+background-position:0 0, 30px 30px; border-top: 1px solid #dedede; border-bottom: 2px solid #cacaca;	}
+
+
+a.content { font-weight: bold;  padding: 0px; }
+.infoFeature { margin-bottom: 10px; float: left; margin-right: 77px; }
+#overview { font-size: @normaltext; float: left; clear: left; color: white !important; border-bottom: 1px solid black; width: 50%; }
+#viewer {}
+
+
+/*---------------------------- UI Elements ------------------------*/
+.arrow-down {	float: right; width: 0; height: 0; border-left: 4px solid transparent; border-right: 4px solid transparent; margin-right: 5px; 
+				border-top: 4px solid black; margin-top: 4px; }
+
+
+/*----------------------------- TABS -----------------------*/
+#tabs-draw { float: left; clear: left; width: 100%; }
+#tabs-overview { float: left; width: calc(100% - 320px) !important; }
+#tabs-sparql { float: left; clear: left; margin-top: 40px; }
+#tabs-menu { float: left; clear: left; width: 100%; background: #f5f5f5; }
+
+
+/*----------------------------Sparql---------------*/
+#sparqlsend { float: left; clear: left; }
+#sparqlsend span { letter-spacing: 1px;  }
+textarea { float: left;  letter-spacing: 0.1em; font-size: @normaltext; padding: 3px 6px 6px 3px; width: 300px; height: auto; color: black; margin-left: 10px; }
+#sparqlinput {float: right;}
+#window { float: left; clear: left; z-index: 1; width: 100%; }
+
+
+
+
+
+/* ---------------------------Toolbar Draw Tab -------------------------------------------------- */
+#toolbar { width: auto; position: fixed; overflow: hidden; top: 150px; height: 300px; color: black; }
+#toolbarbg { background: white; height: calc(100%); opacity: 0.5; position: fixed; top: 32px; width: 40px; margin-top: 1px; }
+#toolbar a { font-size: @normaltext; float: left; clear: left; height: 37px; padding: 0; text-decoration: none;  }
+#version { float: left; font-size: @normaltext; text-transform: none; letter-spacing: 0.1em; color: gray; margin-left: 178px; }
+
+
+/*----------------------------NAVIGATION MAP ---------------------------*/
+
+#navigationmap { 	width: 350px; z-index: 999; margin-left: 5px; padding-top: 30px;
+					color: black;  position: fixed; right: 0;  
+					background: #e6e6e6; border-left: 1px solid #dedede; border-bottom: 2px solid #cacaca;    }
+#navigationmap .labelselect { width: 92px;  padding: 5px 0 5px 8px; text-align: left;}
+#navigationmap .label {width: 92px;} 
+.annotationbox .labelselect {padding: 0 !important; width: 100px;}
+.plus2 .labelselect {padding: 0 !important;}
+#info .label {padding: 0 !important;}
+
+#geonavigation {width: 100%; margin-bottom: 10px;}
+
+
+/* ---------------------------Togglebutton ------------------------------------------------*/
+.togglebutton { 	width: 100%; height: 20px;  float: left; clear: left; cursor: pointer; 
+					padding: @boxpadding; overflow: hidden; padding-top: 9px;}
+
+.firsttogglebutton {margin-top: 0;}
+.togglebutton span { font-size: @toggletext; font-weight: 700; margin-left: 4px;  }
+.toggleheight {float: left;}
+.togglebutton span.iconfont {margin-left: 0;}
+
+.activetab {}
+.activetab span {color: black;}
+.closedtab span {color: black;}
+
+
+
+.geodesc { float: left; clear: left; }
+.gvobjectdesc, .infoDate, .infoCreator, .infoGeometry {float: left;}
+#infofiltered {margin-top: 25px;}
+#navigationmap .gvobjectdesc, .infoDate, .infoCreator { float: left; font-size: @normaltext; line-height: @normallineheight; }
+#tabs-overview .infoDate { font-size: @normaltext; display: none; }
+
+
+/* ---------------------------INFO-------------------------- */
+#info {  	font-size: @normaltext; float: left; clear: left; line-height: @normallineheight; padding: 7px 0 0px 7px; 
+			height: auto;  width: 100%; color: black !important; }
+	#info .infoDate {clear: left;}
+	#info .infoGeometry { clear: left; float: left; }
+
+.inforow {float: left; clear: left; width: 100%; padding: 0; }
+.number {width: 93px; float: left;}
+.gvobjectselect { clear: left; float: left; }
+.gvobjecturl { clear: left; float: left; }
+#pano select {width: 400px;}
+#exportbuttons {float: left; width: 100%; height: auto; margin-bottom: 10px; margin-top: -1px;}
+#exportbuttons a {float: left; clear: left; font-size: @normaltext; margin-left: 8px; margin-top: 2px; cursor: pointer; font-weight: 700; }
+
+
+/*--------------------------------SHORTCUTS----------------------------------*/
+#shortcuts { float: left; font-size: @normaltext; color: white !important; padding: 7px 0 14px 7px; width: 100%; border-top: 1px solid #cacaca; display: none; }
+.shortcutaction {margin-right: 10px;}
+#shortcuts div {float: left; clear: left;}
+#shortcuts p { float: left; color: black; line-height: @normallineheight; }
+.shortcut { margin-right: 30px; width: 70px; }
+
+
+
+/*-------------------------- selects------------------------------------ */
+.projectselect { width: 100%; height: 20px; font-size: @normaltext; }
+.projectselect p { color: black;   }
+.labelselect { width: 100px; float: left; clear: both; color: black;  }
+.panoramaselect { 	clear: left; margin: -28px 0 0; width: 400px; float: left; height: 28px;
+					background: white;  position: relative; margin-left: 41px; }
+	.panoramaselect ul { float: right; width: 280px; }
+
+	.panoramaselect ul li:hover ul { 	display: block; position: absolute; ; border: 0; margin-top: -120px; 
+										height: 70px; margin-left: 0; }
+	.panoramaselect .labelselect { line-height: @normallineheight;  padding-left: 8px; padding-top: 3px;}
+.projectselect ul { float: left; line-height: 26px; width: 230px; }
+	.projectselect ul li ul { display: none; width: 300px; overflow: hidden; }
+	.projectselect ul li:hover ul { display: block; position: absolute; 
+									background: @buttonbackground-gray; color: white;   height: auto; max-height: 200px; 
+									margin-left: -100px;}
+#settings .projectselect ul { float: left; line-height: @normallineheight; margin-left: 0px !important; width: 204px; }
+	#settings .projectselect ul li:hover ul { display: block; position: absolute; background: #121212; margin-left: 0px !important; overflow: auto; height: auto; max-height: 200px; }
+.projectselect ul li ul li { width: 95%; margin-left: 2%; border-bottom: 1px solid #3d3d3d; padding: 0; list-style: none; }
+	.projectselect ul li ul li a { width: 100%; padding: 4px 0; display: block; font-size: 16px; }
+.projectselect .change {padding: 5px 0; margin-top: 1px; text-align: right; float: left; width: 227px; }
+.panoramaselect .change { padding: 5px 0; margin-top: 1px; text-align: right; width: 262px; }
+.mapselect {float: left;  width: 100%; border-bottom: 2px solid #cacaca; background: white; margin-bottom: 2px;}
+
+
+/*------------------------------------Select Menu------------------------------------------------*/
+.menuselect ul li {color: white !important;}
+.menuselect ul { clear: left; float: left; margin-top: 15px; }
+	.menuselect ul li ul {margin-top: 0px;}
+.menuselect { margin-top: 10px; width: 300px; float: left; padding: 0 !important; border-top: 1px solid gray; padding-top: 4px !important; }
+	.menuselect .labelselect {color: white !important;}
+
+
+/*------------------------------------ info--------------------------------- */
+#info p {float: left;}
+	#info p.label {clear: left;}
+	#info p.content { float: left;  }
+#navigationmap p.label {color: black;}
+#navigationmap p.content { color: black; line-height: @normallineheight; }
+.infoFeature p { width: 200px; font-size: @normaltext; margin-left: 0 !important; }
+
+
+/*------------------------------- Maßstabanzeige------------------------------*/
+#scale { position: absolute; height: 30px; width: 100%; padding: 5px 0px 0px 6px; }
+#scale p { font-size: @normaltext; color: black; width: 100%; text-align: center; }
+#scale img {float: left;}
+.scaleicons {float: right; width: 20px; }
+.scaleicons2 {float: right; width: 20px;  margin-right: 8px; height: 30px;}
+.scaleiconsbg {position: fixed; width: 100%;  background: white; opacity: 0.9; height: 28px; pointer-events: none; margin-left: 1px;}
+#north {float: left; color: black; }
+#leftend { height: 6px; border-right: 1px solid black; float: left; margin-top: 13px; margin-left: 3px;  }
+#rightend { margin-top: 13px; height: 6px; border-left: 1px solid black; float: left; }
+#scalewidth { height: 15px; border-bottom: 1px solid black; float: left; }
+p#scaleunit {font-size: @smallesttext;}
+
+
+
+:focus {outline: none !important; }
+#fullscreenbutton { margin-left: 4px; float: left;}
+#fullscreenbutton span { color: black; }
+#gvobjects2 { float: left; margin-top: 300px; width: 100%; }
+	#gvobjects2 .gvobject {margin-bottom: 18px;}
+	#gvobjects2 p {color: white !important;}
+	#gvobjects2 .infoDate {display: none;}
+	#gvobjects2 .infoCreator {display: none;}
+	#gvobjects2 img {display: none;}
+	#gvobjects2 .label {display: none;}
+.workspace { float: left; clear: left; height: auto; width: 100%; margin-top: -30px;  }
+.workspace .projectselect {margin-top: 32px;}
+.interaction {}
+#filterbox { background: none repeat scroll 0 0 #212121; height: 250px; left: 2px; margin-top: -2px; position: fixed; width: 100%; z-index: 2; }
+#filterinput { background: none repeat scroll 0 0 gray; height: auto; left: 234px; position: fixed; top: 42px; width: 540px; z-index: 2; }
+#activefilters {float: left;}
+	#activefilters li { background: none repeat scroll 0 0 gray; float: left; margin-left: 7px; margin-top: 3px; padding: 3px; width: 120px; clear: left; }
+#accordion { width: 1000px; float: left; margin-top: 50px; }
+#filterbox ul li ul {display: none;}
+#filterbox ul li:hover ul {display: block;}
+
+/* ------------------------------------- Menu ----------------------------------------- */
+#logimg { width: 50px; height: auto; }
+#userdiv span { float: left; font-size: 13px; }
+#userdiv a {float: left;}
+#menu-nav { overflow: hidden; position: fixed; width: 260px; margin-left: 7px;  }
+#menu-nav li { border-bottom: 1px solid gray; padding-left: 21px; width: 260px; }
+#menu-nav li a { padding: 6px 0; width: 180px; display: block; }
+.alignleft {padding-left: 0 !important;}
+#form-div { float: left; clear: left; margin-top: 20px; }
+#menu-nav a {font-size: @normaltext; }
+#settings form { margin-bottom: 30px; font-size: @normaltext; line-height: 16px; float: left; width: 360px; margin: 30px 0; height: auto; }
+.form-name { margin-bottom: 20px; border-bottom: 1px solid #cacaca; width: 300px; padding-bottom: 8px; font-size: 13px !important; }
+
+#settings form input {  margin-right: 6px; clear: left; float: left;}
+#settings { margin-left: 300px; float: left; clear: both; width: 720px; margin-bottom: 300px;}
+#settings a {text-decoration: underline; font-style: italic;}
+
+
+
+
+
+/* -------- dropdown ----------*/
+
+.oldflyoutwrapper {		background: #121212; margin-left: -330px; height: 100%;
+						width: 330px !important;
+					 	display: none; color: white; position: fixed !important; top: 0;}
+.panoramaselect .oldflyoutwrapper {
+						margin-left: 0; height: 100px; bottom: 30px; top: auto;
+}					 	
+#controls { float: left;  width: calc(100%); height: auto; z-index: 90; margin-bottom: 10px; }
+.flyout ul {display: none;}
+.flyout:hover ul {display: block;}
+.flyout { height: 150px; position: relative; }
+.resultcol { float: left; width: 170px; border-left: 1px solid #a1a1a1; min-height: 200px; }
+.resultcol:hover {background: #222222;}
+
+.buttonaddfilter {background: #121212;}
+.frontendfilter { 	width: 243px; height: auto; float: right; clear: left;  
+					padding: 4px; overflow: hidden; font-size: @normaltext; cursor: pointer; }
+.frontendfilter:hover {color: red; text-decoration: line-through;}
+.frontendfilter p {float: right; word-break: break-all;}
+.frontendfilter p.filtertype {display: none;}
+.frontendfilter span {float: right;}
+.interfacecontainer, .interfacecontainerwrapper { 	
+						float: left; background: #121212; height: auto; 
+						top: 10%; 
+						width: 378px; 
+						color: white;
+					}
+.emptyheight .interfacecontainer {background: @listbg !important; color: black !important; font-size: 13px;}					
+.interfacecontainer {overflow-x: hidden !important; overflow-y: scroll !important;}
+.interfacecontainerwrapper {width: 360px !important;  margin-left: -360px; position: fixed !important; top: 0;}	
+.emptyheight {height: 31px !important;  position: relative !important; margin-left: 0; top: 0;}				
+#nochntest .filterform {text-align: left; width: 330px; position: fixed; height: 50px; background: #121212;  }
+.interfacelist a { width: calc(100% - 18px); border-top: 1px solid #666666; line-height: 27px; margin-left: 7px; font-size: @listtext; padding: 6px 0 8px 0; display: block;}
+.interfacelist ul {margin-top: 75px; float: left; clear: left; width: 100%;}
+
+ 
+.frontendfiltertype {float: left; width: calc(100% - 15px); margin: 0 8px; height: auto; border-top: 1px solid #cacaca;  }
+
+
+
+.newline {clear: both;}
+.colcontent div {height: 50px;}
+.plus2 { width: calc(100% - 44px); overflow: hidden; float: left; padding: 6px 8px 6px; text-align: right; border-bottom: 2px solid #cacaca; background: white; }
+
+
+.deletefilter {     cursor: pointer; height: 20px; margin-top: -26px; text-align: right; width: 100%; padding: 5px;}
+.colcontent {padding: 5px;}
+.colheader ul li ul {display: none;}
+.colheader ul li:hover ul { display: block; position: absolute; background: #a1a1a1; height: 200px; padding: 5px; }
+.colheader li a { font-size: @normaltext; width: 120px; float: left; clear: left; padding: 3px 0; color: #333333; }
+.headerclick { font-size: @normaltext; text-align: center; width: 100%; float: left; color: black; }
+.filterdiv { float: left; margin-right: 50px; width: 120px; border: 1px solid white; padding: 5px; height: auto; }
+#result { float: left; clear: both; }
+h1 { float: left; clear: left; font-size: 19px;  }
+#select { float: left; clear: left; }
+#controls a { clear: left; float: left; cursor: pointer; word-break: break-all; }
+#controls a:hover {text-decoration: underline;}
+
+
+/*------------------------- TABLE --------------------------- */
+#table { float: left; margin-bottom: 200px; color: black; width: 1200px;  }
+#tablewrapper {background: #f5f5f5; position: absolute; width: calc(100% - 500px); overflow: auto; height: calc(100% - 38px); margin-top: 33px;}
+#tablewrapper.fullscreen {width: calc(100% - 100px);}
+.row { float: left; clear: left; z-index: 1; }
+.row div { float: left; white-space: nowrap; min-width: 110px !important; width: 320px; height: 26px; border-bottom: 1px solid #DEDEDE; border-left: 1px solid #DEDEDE; padding: 4px 3px 0 5px; }  
+.first {margin-top: 31px;}
+.header { position: absolute; width: 3000px;  }
+.headerwrapper {position: absolute; z-index: 2; overflow: hidden; width: 2000px; height: 31px; top: 0;  overflow: hidden !important;}
+.headerwrapper.fixed {position: fixed; top: 33px;}
+.header div {  background: @light-gray; border-left: 1px solid #cacaca;  }
+div.row:hover {background: @buttoncolor !important; }
+div.header:hover {background: none !important;}
+.mark { cursor: pointer;}
+#table .row span { float: left; margin-top: 3px;}
+#table .header span {float: right; margin-top: 9px; }
+#overline {width: 100%; margin: 0 !important; }
+.draggable {	width: 30px; height: 60px; font-size: 35px !important;
+				  z-index: 99999;  margin-right: -3px !important; margin-top: -4px !important; float: right; cursor: pointer;}
+
+#fulltext {	 background: white; z-index: 99999999999; 
+			position: fixed; bottom: 0; left: 0; height: 30px; padding-top: 5px; background: @light-gray; width: 100%; font-size: 12px;}
+
+
+
+.columnoptions {margin-right: 10px; float: left;}
+.columnoptions:hover {text-decoration: underline;}
+.deletecolumn {float: right; margin-right: -5px;}
+.pluscontainer { position: fixed; width: 50px; height: 2000px; z-index: 20; right: 0; top: 33px; }
+.plus { position: fixed; height: 100%; width: 50px; overflow: hidden; z-index: 21; 
+		border-right: 1px solid #dedede; border: 1px solid #dedede; cursor: pointer; font-size: 14px; 
+		color: black; text-align: center; padding: 6px 5px;  border-bottom: 2px solid #cacaca; }
+.sizeproblem { position: fixed; height: 100%; width: 50px; overflow: hidden; z-index: 21; 
+		border-right: 1px solid #dedede; border: 1px solid #dedede; font-size: 14px; 
+		color: #dedede; text-align: center; padding: 6px 5px;  border-bottom: 2px solid #cacaca; display: none; }		
+.plus:hover {background: @buttoncolor;}
+.tablecategorylist { position: fixed; z-index: 22; background: #121212; width: 211px; height: 100%; color: white; margin-left: -150px; }
+.tablecategorylist li a {border-top: 1px solid #3d3d3d; margin: 0 5px; padding: 5px 0; float: left; clear: left; width: calc(100% - 10px); cursor: pointer;}
+.tablecategorylist li span {border-top: 1px solid #3d3d3d; margin: 0 5px; padding: 5px 0; float: left; clear: left; width: calc(100% - 10px); color: grey;}
+.tablecategorylist li a:hover {text-decoration: underline;}
+
+.selectedrow {background: #00F58F !important;}
+.creatorhighlight {color: red; }
+.idhighlight {background: @buttoncoloralpha;}
+.picturepopup {border: 0 !important; width: 0px !important; margin-top: -2px;  }
+.rowmarker {background: @buttoncolor;}
+
+
+.row div.columnid {width: 110px !important;}
+.header div.columnid {padding-left: 7px; width: 108px; padding-right: 1px;}
+
+.row div.noflyout {width: 30px !important; border-right: 1px solid #DEDEDE; min-width: 0 !important;}
+.row div.vpid {width: 80px !important;}
+.row div.subType {width: 100px !important;}
+
+
+.row div.img {width: 133px; padding: 0; height: 133px !important;}
+.header div.img {height: 27px !important;  padding: 3px 3px 0 5px; width: 125px !important;}
+.row div.type {width: 200px;}
+.row div.link {width: 30px !important; border-right: 1px solid #DEDEDE; margin-right: 0; text-align: center; min-width: 0 !important;}
+.tablelink { color: black; }
+
+
+
+/* TAB MENU NEU */
+#tabbackground {position: fixed; background: white; height: 33px; width: 100%; opacity: 0.9;}
+#toprow { height: 28px; width: 100%; margin: 0 auto; position: fixed; padding-top: 1px;  z-index: 920; top: 0; color: white;  }
+#tabunderline {  width: calc(100% - 700px); margin-top: 38px;}
+#toprowUL {margin-top: -38px;}
+	#toprowUL li { float: left; overflow: hidden; }
+		#toprowUL li a { 	font-size: @menutext; width: 100%; overflow: hidden; display: inline-block; 
+							padding: 7px 30px 7px 7px; color: black;
+							margin-bottom: -2px;   }
+		#toprowUL li.ui-tabs-active a { border-bottom: 0; overflow: hidden; display: inline-block; 
+										z-index: 5; font-size: 19px;  
+										 color: black; padding-top: 4px; font-weight: 700;  }
+		#toprowUL li a span { font-size: @smalltext; letter-spacing: 2px; margin-left: 5px; }
+		#toprowUL li a:hover { text-decoration: underline; }
+		#toprowUL li a:hover span { text-decoration: none; }
+		#toprowUL li.ui-tabs-active a span:hover { margin-left: 4px; letter-spacing: 1px;  }
+
+
+
+/* Small Tabs */
+.tabnavigation {float: left; clear: left; font-size: 13px; margin-top: 40px;}
+.tabnavigation a {float: left; padding: 4px 8px 4px 4px; border-left: 1px solid transparent; border-right: 1px solid transparent; color: gray; clear: none !important;}
+.tabnavigation a.activetab { border-bottom: 0; color: white;}
+.tabcontent {clear: left; float: left; width: 100%; margin-top: 20px;}
+#tab1 {display: none;}
+#smalltabheader {position: fixed; background: #121212; display: block; width: 360px;}
+
+#closeflyout {	position: absolute;	right: 11px; top: 14px; cursor: pointer; z-index: 9999999999;}
+
+
+
+/*--------------------------------------------DOCUMENTATION------------------------------------------------*/
+#documentation { float: left;  width: 720px;  height: auto; margin-left: 8px; clear: left; margin-left: 300px; margin-top: 100px; margin-bottom: 150px;  }
+#documentation span {font-size: 19px; line-height: 25px;}
+iframe {float: left; margin-top: 50px; margin-right: 30px;}
+#featuredisplaysetting {float: left; clear: left;}
+#userdiv { clear: left; float: left; width: 100%; }
+em {  font-style: normal !important; line-height: 17px; }
+#menunav {margin-left: 8px; position: fixed; margin-bottom: 100px; left: 0; top: 90px; width: 300px;}
+#menunav li {float: left; margin-right: 20px; clear: left; border-bottom: 1px solid #cacaca; width: 250px; padding: 5px 0;}
+#menunav li a {display: block;  font-size: 15px; }
+#introtext {float: left; clear: left; }
+#logtext {float: left; margin-left: 10px;}
+#user {float: left; margin-left: 10px;}
+
+#settings span {clear: left; float: left; max-width: 710px; font-size: 19px;}
+
+#form {float: left; clear: left;}
+.clear {clear: left; float: left;}
+
+#import, #downloadreport {background: white; padding: 5px 14px; border-bottom: 2px solid #cacaca; border-right: 2px solid #cacaca;}
+.marginbottom {margin-bottom: 200px !important;}
+.margintop {margin-top: 150px !important;}
+.docushorttext {float: left; clear: left; font-size: 11px !important; margin: 15px 0 5px 0; line-height: 13px; color: gray;}
+#downloadreport {float: left; clear: left; width: 300px;}
+#reportwrapper {float: left; margin-top: 30px;}
+
+input[type=radio], input[type=checkbox] {
+	display: none;
+    
+}
+
+.menusettings label:before {
+	content: "";
+    display: inline-block;
+ 
+    width: 10px;
+    height: 10px;
+ 
+    margin-right: 10px;
+    float: left;
+    left: 0;
+
+    bottom: 1px;
+    background-color: white;
+    border-radius: 8px;
+    border: 2px solid gray;
+
+    cursor: pointer;
+}
+
+.menusettingsbox label:before {
+	content: "";
+    display: inline-block;
+ 
+    width: 10px;
+    height: 10px;
+ 
+    margin-right: 10px;
+    float: left;
+    left: 0;
+
+    bottom: 1px;
+    background-color: white;
+    border-radius: 0px;
+
+    cursor: pointer;
+    border: 2px solid gray;
+}
+
+
+
+input[type=radio]:checked + label:before {
+    content: "\2022";
+    color: gray;
+    font-size: 31px;
+    text-align: center;
+    line-height: 11px;
+}
+
+input[type=checkbox]:checked + label:before {
+    content: "\2713";
+    font-size: 12px;
+    color: black;
+    text-align: center;
+    line-height: 15px;
+    font-weight: bold;
+}
+
+#metadata { width: 720px; border-top: 1px solid #cacaca; font-size: 13px; line-height: 18px; margin-top: 49px; padding: 25px 0; border-bottom: 1px solid #cacaca; float: left; }
+.meta-label {clear: left; float: left; margin-right: 10px; width: 200px;}
+#metadata div {float: left;}
+
+
+
+
+
+
+/*------------------ NEW ANNOTATOR --------------------------*/
+
+#annotator {float: left; height: auto; width: 100%; font-size: @normaltext; margin-bottom: 10px; }
+
+#annotatepredicate, #annotateobject, #annotatesubject {width: calc(100% - 11px); height: auto;  margin: 2px 10px 0 0; min-height: 25px;   }
+#annotateflyout{	background: #121212;  height: 100%;  
+					width: 378px; color: white; overflow-y: scroll; overflow-x: hidden;}
+#filtertabflyout {	background: #121212;  color: white; 
+					width: 360px !important;  margin-left: -360px; position: fixed !important; top: 0;}
+#sparqltabflyout {	height: 200px; width: 378px; background: #121212; color: white; 
+					width: 360px !important; height: 810px !important; margin-left: -360px; position: fixed !important; top: 0;}
+#sparqltabflyout p {float: left; clear: left; margin: 10px;}
+#annotateflyoutwrapper {overflow: hidden; margin-left: -360px;  position: absolute; display: none; width: 360px; height: 100%;}
+
+.annotateflyout {width: 362px !important; height: auto !important; position: absolute; margin-left: -353px; }
+.annotateflyout a {clear: left; float: left; }
+.addannotation {width: calc(100% - 20px); height: 100%; display: block; color: black; line-height: 22px; text-align: right; float: left;}
+.addannotation:hover {cursor: pointer; text-decoration: underline;}
+.annotationselect {background: gray; overflow: hidden; padding: 10px;}
+.annotationbox {float: left; padding: 1px 8px; border-bottom: 2px solid #cacaca; background: white;}
+.activebox {background: #121212 !important; color: white !important;}
+.activebox a {color: white !important;}
+.activebox .labelselect {color: white !important; height: 40px; padding: 10px 20px; background: none;}
+.annotationlist { width: calc(100% - 18px);	display: block; cursor: pointer; margin-left: 7px; line-height: 20px; font-size: @listtext;  padding: 10px 0 11px 0; border-top: 1px solid #666666; word-break: break-all; }
+.tabfilterlist { width: calc(100% - 18px);	display: block; cursor: pointer; margin-left: 7px; line-height: 20px; font-size: @listtext;  padding: 10px 0 11px 0; border-top: 1px solid #666666; }
+.annotationlistfirst {margin-top: 100px;}
+.annotationlist:hover {text-decoration: underline;}
+#savebutton {float: left; clear: left; background: #fffdbf; padding: 4px 31px 6px 0px; text-align: right; margin-top: 2px; width: 98%; color: black; cursor: pointer; }
+
+.annotationswrapper, .featureswrapper {margin-top: 90px;}
+#annotationsearch {   background: #121212 none repeat scroll 0 0; position: fixed; width: 360px; z-index: 88888;}
+.filterinput {border: 0; background: gray; cursor: pointer; padding: 8px 3px; background: url(../img/search.svg) right no-repeat; width: 16px;}
+.filterinput:focus {background: white; width: 354px;}
+.annotationswrapper { clear: left; margin-top: 90px; }
+#textbox {margin-top: 100px; margin-left: 8px; float: left;}
+#textsend {clear: both; float: left; margin-left: 4px; cursor: pointer;}
+.success {background: #00f58f; width: 100%; float: left; clear: both; padding: 10px 0;}
+
+
+
+
+
+
+/*--------------------------- FOOTER ------------------------------------*/
+#footer {  	background: white none repeat scroll 0 0; border-top: 1px solid gray;
+    		color: black; font-size: 20px; letter-spacing: 0.1em; padding: 6px 8px;
+   			width: 100%; opacity: 0.5; }
+#footer span { margin-left: 20px; font-size: @smalltext; }
+#footerwrapper { bottom: 0; position: fixed; width: 100%;  z-index: 99; display: none; }
+#footer p {}
+#content { width: 95%; height: 200px; margin: 0 auto; z-index: 100; float: left; clear: left; }
+
+
+
+
+/*------------------ ICON FONT ------------------------------*/
+span.iconfont {font-size: 17px; float: left; font-weight: normal;  }
+.icon-colsize:hover {color: black !important};
+
+#toolbar span.iconfont {font-size: 25px; margin-left: 7px; }
+
+
+/*-------------------- PRELOADER ----------------------*/
+#preloader {	background: white; width: 100%; height: 2000px; position: fixed; top: 0; 
+				left: 0;   z-index: 99999999999999999;
+				padding: 10px; cursor: wait; font-size: 15px; }
+#wait {margin-bottom: 50px;}
+#viewertitle {font-size: 45px; margin-bottom: 100px; font-weight: bold; line-height: 50px;}
+#viewercredits {float: left; clear: left; margin-top: 40px;}
+#viewercredits span {float: left; width: 300px;}
+
+
+.activeButton {color: #FF4545 !important;}
